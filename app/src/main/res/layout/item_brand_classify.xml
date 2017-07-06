@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_group"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="热门品牌"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textSize="12sp"
+        android:background="@color/divider"
+        android:textColor="@color/text_dark33"/>
+
+    <LinearLayout
+        android:id="@+id/layout_hot"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@drawable/drawable_selector"
+        android:gravity="center_vertical"
+        android:layout_height="50dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_brand"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/bmw"/>
+
+            <TextView
+                android:id="@+id/text_brand_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="宝马"
+                android:textSize="15sp"
+                android:textColor="@color/text_dark33"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

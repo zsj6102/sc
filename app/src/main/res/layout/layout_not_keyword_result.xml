@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    android:background="@color/search_color">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="34dp"
+            android:src="@mipmap/not_car"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="暂无车源"
+            android:textColor="@color/text_dark99"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/text_add"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="添加到我的订阅，有新车通知您"
+        android:textColor="@color/white"
+        android:background="@drawable/login_code"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"/>
+</RelativeLayout>

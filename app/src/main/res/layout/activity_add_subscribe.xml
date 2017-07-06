@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/bar"
+        layout="@layout/layout_add_subscribe"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:layout_below="@+id/bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="车辆类型"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_classify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="品牌"
+                    android:layout_marginLeft="10dp"/>
+                
+                <TextView
+                    android:id="@+id/text_add"
+                    android:layout_width="250dp"
+                    android:layout_height="37dp"
+                    android:text="点击添加品牌"
+                    android:background="@drawable/drawable_add_subscribe"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorSeekBarDefalut"
+                    android:layout_marginLeft="15dp"/>
+            </LinearLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="变速箱"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_shift"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="车龄要求"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：年)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限车龄"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/ChooseAgeArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:hideProgressHint="true"
+                    app:cells="8"
+                    app:textSize="15sp"
+                    app:min="0"
+                    app:max="8"
+                    app:reserve="1"
+                    app:hintBGHeight="30dp"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_g"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="公里数"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text_g"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：万公里)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_km"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限公里"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_km"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/kmArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:hideProgressHint="true"
+                    app:textSize="15sp"
+                    app:cells="15"
+                    app:min="0"
+                    app:max="15"
+                    app:reserve="1"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:hintBGHeight="30dp"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_p"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="价格"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text_p"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：万元)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限价格"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/markArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:hideProgressHint="true"
+                    app:textSize="15sp"
+                    app:cells="50"
+                    app:min="0"
+                    app:max="50"
+                    app:reserve="1"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:hintBGHeight="30dp"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

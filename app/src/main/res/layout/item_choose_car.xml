@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/ct_car"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:button="@null"
+        android:gravity="center_vertical"
+        android:background="@drawable/choose_car_bg"
+        android:drawableRight="@drawable/drawable_choose_car"
+        android:paddingRight="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/text_choose_car"
+        android:text="微型车"/>
+</LinearLayout>

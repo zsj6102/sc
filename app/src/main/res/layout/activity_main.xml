@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <com.property.colpencil.colpencilandroidlibrary.Ui.NoScrollViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+    </com.property.colpencil.colpencilandroidlibrary.Ui.NoScrollViewPager>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <RadioGroup
+            android:id="@+id/rb_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/BottomTabStyle"
+                android:checked="true"
+                android:drawableTop="@drawable/btn_tab_home_selector"
+                android:text="首页"
+                android:textColor="@drawable/btn_tab_text_selector"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/rb_buy"
+                style="@style/BottomTabStyle"
+                android:drawableTop="@drawable/btn_tab_buy_selector"
+                android:text="买车"
+                android:textColor="@drawable/btn_tab_text_selector"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/rb_sell"
+                style="@style/BottomTabStyle"
+                android:drawableTop="@drawable/btn_tab_sell_selector"
+                android:text="卖车"
+                android:textColor="@drawable/btn_tab_text_selector"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                style="@style/BottomTabStyle"
+                android:drawableTop="@drawable/btn_tab_mine_selector"
+                android:text="我的"
+                android:textColor="@drawable/btn_tab_text_selector"
+                android:textSize="11sp" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

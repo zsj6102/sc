@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilListView
+            android:id="@+id/cl_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:dividerHeight="0dp"
+            android:divider="@null"
+            android:scrollbars="none"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/depreciate_text"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/main_home">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="11sp"-->
+                <!--android:textColor="@color/text_dark99"-->
+                <!--android:text="咨询电话："/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text_tel"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="11sp"-->
+                <!--android:textColor="@color/main_blue"-->
+                <!--android:text="400-016-1212"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="11dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:background="@color/main_blue"/>-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="11dp"-->
+                <!--android:layout_height="11dp"-->
+                <!--android:src="@mipmap/feedback"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text_feedback"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:text="问题反馈"-->
+                <!--android:textColor="@color/main_blue"-->
+                <!--android:textSize="11sp"/>-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</LinearLayout>

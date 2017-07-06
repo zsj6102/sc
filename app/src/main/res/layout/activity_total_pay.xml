@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_text">
+
+    <include layout="@layout/base_toolbar"/>
+
+    <com.colpencil.secondhandcar.Ui.VpScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/depreciate_text">
+
+                <ImageView
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:src="@mipmap/pay"/>
+
+                <TextView
+                    android:id="@+id/text_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="累计支付3笔"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/home_new_car"
+                        android:text="金额："/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_red"
+                        android:text="23587.60"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="元"
+                        android:textSize="12sp"
+                        android:textColor="@color/home_new_car"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilListView
+                android:id="@+id/list_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:dividerHeight="0.5dp"
+                android:divider="@color/main_bg"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/login_text"/>
+        </LinearLayout>
+    </com.colpencil.secondhandcar.Ui.VpScrollView>
+</LinearLayout>

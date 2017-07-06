@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/base_toolbar"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:clickable="true"
+        android:paddingLeft="15dp"
+        android:textSize="13dp"
+        android:textColor="@color/home_new_car"
+        android:text="无需注册，输入手机号即可登录"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/main_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dark33"
+            android:layout_marginLeft="15dp"
+            android:textSize="13sp"
+            android:text="手机号"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/edt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="13sp"
+                android:textColor="@color/home_new_car"
+                android:layout_marginLeft="20dp"
+                android:hint="请输入您的手机号码"
+                android:layout_toLeftOf="@+id/text_code"
+                android:maxLength="11"
+                android:inputType="number"
+                android:textColorHint="@color/home_new_car"
+                android:singleLine="true"
+                android:background="@null"/>
+
+            <TextView
+                android:id="@+id/text_code"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginRight="10dp"
+                android:textSize="13sp"
+                android:background="@drawable/login_code"
+                android:text="验证码"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/main_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码"
+            android:layout_marginLeft="15dp"
+            android:textSize="13sp"
+            android:textColor="@color/text_dark33"/>
+
+        <EditText
+            android:id="@+id/edt_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="13sp"
+            android:textColor="@color/home_new_car"
+            android:layout_marginLeft="20dp"
+            android:hint="请输入验证码"
+            android:maxLength="6"
+            android:inputType="number"
+            android:textColorHint="@color/home_new_car"
+            android:singleLine="true"
+            android:background="@null"/>
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/main_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_text"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_home_more"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_agree"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:button="@null"
+                android:layout_marginLeft="20dp"
+                android:checked="true"
+                android:background="@drawable/drawable_period_buy_car"/>
+
+            <TextView
+                android:id="@+id/text_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:textColor="@color/home_new_car"
+                android:text="同意我们的《服务条款》"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

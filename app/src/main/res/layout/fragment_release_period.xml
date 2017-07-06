@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_text">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="44dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_dark33"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:layout_centerVertical="true"
+                    android:text="是否可分期购车"/>
+
+                <CheckBox
+                    android:id="@+id/cb_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:layout_centerVertical="true"
+                    android:button="@null"
+                    android:background="@drawable/drawable_period_buy_car"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/main_bg"/>
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/layout_period"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/white"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="44dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textSize="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="是否支持3期付款"/>-->
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/cb_period_three"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:button="@null"-->
+                        <!--android:background="@drawable/drawable_period_buy_car"/>-->
+                <!--</RelativeLayout>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:background="@color/main_bg"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="44dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textSize="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="是否支持6期付款"/>-->
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/cb_period_six"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:button="@null"-->
+                        <!--android:background="@drawable/drawable_period_buy_car"/>-->
+                <!--</RelativeLayout>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:background="@color/main_bg"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="44dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textSize="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="是否支持12期付款"/>-->
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/cb_period_twelve"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:button="@null"-->
+                        <!--android:background="@drawable/drawable_period_buy_car"/>-->
+                <!--</RelativeLayout>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:background="@color/main_bg"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="44dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textSize="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="是否支持24期付款"/>-->
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/cb_period_twenty_four"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:button="@null"-->
+                        <!--android:background="@drawable/drawable_period_buy_car"/>-->
+                <!--</RelativeLayout>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:background="@color/main_bg"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="44dp">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textSize="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="是否支持36期付款"/>-->
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/cb_period_thirty_six"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:button="@null"-->
+                        <!--android:background="@drawable/drawable_period_buy_car"/>-->
+                <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+            <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilListView
+                android:id="@+id/list_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:divider="@color/main_bg"
+                android:dividerHeight="0.5dp"/>
+        </LinearLayout>
+    </ScrollView>
+    
+    <TextView
+        android:id="@+id/text_release"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:text="发布卖车信息"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@color/title_color"/>
+</RelativeLayout>

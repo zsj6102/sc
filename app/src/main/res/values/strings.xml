@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">银台二手车</string>
+    <string name="select_city">选择城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="located_city">定位城市</string>
+    <string name="hint_search_box">请输入城市名或拼音</string>
+    <string name="nothing_found">没有搜索结果~</string>
+    <string name="locating">正在定位…</string>
+    <string name="located_failed">定位失败</string>
+    <!--品牌筛选车辆数-->
+    <string name="choose_carNumber" >为您找到%1$d辆车</string>
+    <string name="bespoke_look_car">订金是按车售价的%1.1f%%，支付后看车，确定是否买车，买车我们可转分期购车购车，或者线下支付剩下的尾款，不买车我们会将您的订金退还给您。</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_tag"
+    android:layout_marginLeft="12dp"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/text_subscribe_tag"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:textColor="@color/home_new_car"
+    android:textSize="12sp"
+    android:text="准新车"/>

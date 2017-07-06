@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:background="@color/title_color">
+
+    <LinearLayout
+        android:id="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        android:background="@drawable/navigation_search_shape"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/text_cancel"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search_icon"/>
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:imeOptions="actionSearch"
+            android:layout_marginLeft="5dp"
+            android:singleLine="true"
+            android:textColor="@color/navigation_title"
+            android:background="@null"
+            android:textSize="14sp"
+            android:textColorHint="@color/navigation_title"
+            android:hint="搜索"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:textSize="15sp"
+        android:layout_marginRight="10dp"
+        android:text="取消"
+        android:textColor="@color/white"/>
+</RelativeLayout>

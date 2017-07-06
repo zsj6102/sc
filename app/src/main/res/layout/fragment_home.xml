@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/layout_home_navigation"/>
+
+    <com.colpencil.secondhandcar.Ui.VpSwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:image_scale_type="fit_xy"
+                    app:indicator_drawable_selected="@mipmap/banner_check"
+                    app:indicator_drawable_unselected="@mipmap/banner_no_check"
+                    app:indicator_height="8dp"
+                    app:indicator_margin="3dp"
+                    app:indicator_width="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_buy"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/buy_car_layout_shape"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv"
+                            android:layout_width="33dp"
+                            android:layout_height="21dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:src="@mipmap/home_buy" />
+
+                        <TextView
+                            android:id="@+id/text_buy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_toRightOf="@+id/iv"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="买车"
+                            android:textSize="18sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@id/text_buy"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:paddingTop="5dp"
+                            android:textSize="13sp"
+                            android:text="个人车源"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_sell"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="44dp"
+                        android:background="@drawable/sell_car_layout_shape"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_sell"
+                            android:layout_width="33dp"
+                            android:layout_height="21dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/home_sell" />
+
+                        <TextView
+                            android:id="@+id/text_sell"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/iv_sell"
+                            android:text="卖车"
+                            android:textSize="18sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_toRightOf="@+id/text_sell"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/white"
+                            android:paddingTop="5dp"
+                            android:layout_centerVertical="true"
+                            android:textSize="13sp"
+                            android:text="一站解决"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/login_text"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:visibility="gone"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/parameter"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/parameter_color"
+                        android:textSize="12sp"
+                        android:text="参数选择"/>
+                </LinearLayout>
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.8dp"-->
+                    <!--android:background="#e5e5e5"/>-->
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/rv_classify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:layout_marginTop="5dp"
+                    android:numColumns="4"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/text_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="查看全部车源"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:background="@drawable/btn_home_more"
+                    android:layout_marginRight="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/login_text"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp">
+                    
+                    <ImageView
+                        android:id="@+id/img_subscribe"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/subscribe"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/img_subscribe"
+                        android:textSize="13sp"
+                        android:textColor="@color/parameter_color"
+                        android:text="新上车源订阅"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/home_new_car"
+                            android:layout_marginRight="5dp"
+                            android:text="新上4辆"/>
+
+                        <ImageView
+                            android:id="@+id/img_new"
+                            android:layout_width="5dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/enter"
+                            android:layout_marginRight="10dp"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/login_text"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_good"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp">
+
+                        <ImageView
+                            android:id="@+id/img_recommend"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/recommend"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/img_recommend"
+                            android:textSize="13sp"
+                            android:textColor="@color/parameter_color"
+                            android:text="好车推荐"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp"
+                                android:textColor="@color/home_new_car"
+                                android:layout_marginRight="5dp"
+                                android:text="全部推荐"/>
+
+                            <ImageView
+                                android:id="@+id/img_r"
+                                android:layout_width="5dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@mipmap/enter"
+                                android:layout_marginRight="10dp"
+                                />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/main_bg"/>
+
+                    <com.property.colpencil.colpencilandroidlibrary.Ui.RecylerView.AutoLoadRecylerView
+                        android:id="@+id/lv_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@color/main_bg"
+                        android:dividerHeight="0.5dp"/>
+
+                    <TextView
+                        android:id="@+id/text_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@color/login_text"
+                        android:textSize="14sp"
+                        android:text="查看更多"
+                        android:textColor="@color/home_new_car"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </com.colpencil.secondhandcar.Ui.VpSwipeRefreshLayout>
+
+</LinearLayout>

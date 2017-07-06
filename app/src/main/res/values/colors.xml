@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="main_blue">#3264cb</color>
+    <color name="text_dark99">#656565</color>
+    <!--状态栏颜色-->
+    <color name="title_color">#5e8be4</color>
+    <color name="line">#f5f5f5</color>
+    <color name="navigation_search">#446dbc</color>
+    <color name="navigation_title">#aabbdd</color>
+    <!--首页卖车-->
+    <color name="home_sell_car">#f6a257</color>
+    <!--背景间距-->
+    <color name="main_bg">#f1f1f1</color>
+    <color name="main_home">#f2f2f2</color>
+    <color name="parameter_color">#595959</color>
+    <!--新上车源-->
+    <color name="home_new_car">#989898</color>
+
+    <color name="text_dark33">#333333</color>
+
+    <color name="text_red">#ff2727</color>
+
+    <!--搜索背景颜色-->
+    <color name="search_color">#f0f0f0</color>
+
+    <color name="search_line">#d8d8d8</color>
+    <!--降价通知-->
+    <color name="depreciate_text">#eeeeee</color>
+
+    <color name="common_bg">#FAFAFA</color>
+    <color name="theme_gray">#646464</color>
+    <color name="shadow">#AAEBEBEB</color>
+    <color name="gray">#8c8c8c</color>
+    <color name="content_bg">#F3F3F3</color>
+    <color name="alpha_gray">#CC646464</color>
+    <color name="gray_deep">#5c5c5c</color>
+    <color name="divider">#E5E5E5</color>
+
+    <color name="colorSeekBarDefalut">#c3c3c3</color>
+
+    <color name="white_pressed">#FFCFCFCF</color>
+
+    <!--立即登陆-->
+    <color name="login_text">#f6f6f6</color>
+
+    <color name="car_choose">#cbd8f1</color>
+
+    <!--筛选查看-->
+    <color name="choose_car_commit">#f6a257</color>
+    <!--搜索关键词背景-->
+    <color name="search_keyword">#f8f8f8</color>
+    <!--黑色背景-->
+    <color name="black">#ff000000</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+</resources>

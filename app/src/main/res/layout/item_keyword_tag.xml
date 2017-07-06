@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/drawable_shape_keyword"
+        android:drawableRight="@mipmap/keyword_clear"
+        android:layout_marginLeft="10dp"
+        android:drawablePadding="8dp"
+        android:button="@null"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="8dp"
+        android:paddingTop="3dp"
+        android:text="TAG标签"
+        android:textColor="@color/home_new_car" />
+
+</RelativeLayout>

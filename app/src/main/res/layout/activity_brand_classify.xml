@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/base_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:orientation="vertical">
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/layout_all"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="49dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:src="@mipmap/all"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/text_dark33"-->
+                        <!--android:layout_marginLeft="15dp"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:text="不限品牌"/>-->
+                <!--</LinearLayout>-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:background="@color/main_bg"/>-->
+
+                <ListView
+                    android:id="@+id/list_classify"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/line"/>
+
+            <com.property.colpencil.colpencilandroidlibrary.Ui.NoScrollViewPager
+                android:id="@+id/cars_pager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!--<com.colpencil.secondhandcar.Ui.BrandSideLetterBar-->
+            <!--android:id="@+id/side_letter_bar"-->
+            <!--android:layout_width="@dimen/side_letter_bar_width"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginBottom="50dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_height="match_parent"-->
+            <!--tools:ignore="RtlHardcoded" />-->
+    </RelativeLayout>
+</LinearLayout>

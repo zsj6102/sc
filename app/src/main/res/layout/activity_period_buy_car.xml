@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/bar"
+        layout="@layout/base_toolbar"/>
+
+    <com.colpencil.secondhandcar.Ui.VpScrollView
+        android:id="@+id/scrollview"
+        android:layout_below="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="45dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:image_scale_type="fit_xy"
+                app:indicator_drawable_selected="@mipmap/banner_check"
+                app:indicator_drawable_unselected="@mipmap/banner_no_check"
+                app:indicator_height="8dp"
+                app:indicator_margin="3dp"
+                app:indicator_width="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/loan"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_dark33"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="14sp"
+                        android:text="贷款流程"/>
+                </LinearLayout>
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/main_bg"/>
+                
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="分期购买一辆心仪的二手车，手机分期完成支付无需银行转账。每期到付时间前三天自动提醒您支付，无需再联系卖家，保证买家放心、安心、舒心"
+                    android:textColor="@color/home_new_car"
+                    android:textSize="13sp"/>
+                
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/depreciate_text"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp">
+
+                    <ImageView
+                        android:id="@+id/img_car"
+                        android:layout_width="110dp"
+                        android:layout_height="82dp"
+                        android:src="@mipmap/holder"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/img_tag"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:visibility="visible"
+                        android:src="@mipmap/new_car"/>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginRight="30dp"
+                            android:textColor="@color/text_dark33"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:maxEms="20"
+                            android:text="哈哈哈嘎嘎嘎瓜瓜瓜嘻嘻嘻啦啦啦哈哈哈嘎嘎嘎瓜瓜瓜嘻嘻嘻啦啦啦"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_ma"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="@color/text_red"
+                            android:layout_centerVertical="true"
+                            android:text="43.5万"/>
+
+                        <TextView
+                            android:id="@+id/text_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:text="2013年11月"
+                            android:textSize="11sp"
+                            android:textColor="@color/home_new_car"
+                            android:layout_toLeftOf="@+id/tv_statue" />
+
+                        <TextView
+                            android:id="@+id/tv_statue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="12.12万公里"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:textSize="11sp"
+                            android:textColor="@color/home_new_car"
+                            android:layout_alignParentRight="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/text_urgent"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/urgent_sale"/>
+
+                        <ImageView
+                            android:id="@+id/img_period"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_toRightOf="@+id/text_urgent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/period_details"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/depreciate_text"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/period_scheme"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="支持的分期方案"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_dark33"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/main_bg"/>
+
+            <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilListView
+                android:id="@+id/list_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:dividerHeight="0.5dp"
+                android:divider="@color/main_bg"/>
+        </LinearLayout>
+    </com.colpencil.secondhandcar.Ui.VpScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_period"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/title_color"
+            android:text="马上预约"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>

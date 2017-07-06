@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.colpencil.secondhandcar">
+
+    <!-- 以后每申明一个权限，都要给这个权限做说明 -->
+    <!-- 写入sd卡的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 读取sd卡的权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--连接网络的权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--杀死后台进程的权限-->
+    <uses-permission android:name="permission.KILL_BACKGROUND_PROCESSES" />
+    <!--系统弹出的权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--系统设置-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--扫描所需权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--手机震动的权限-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--闪光灯-->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!--唤醒锁屏-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!--用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!--写入扩展存储，向扩展卡写入数据，用于写入缓存定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 修改音频设置 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <!-- 访问GMail账户列表 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <!-- 使用证书 -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <!-- 管理账户 -->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <!-- 验证账户 -->
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <!--蓝牙权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <!--广播接收权限-->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <!--卸载权限-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".Overall.CarApplication"
+        android:theme="@style/AppTheme">
+        <!--程序主页面-->
+        <activity android:name=".Views.Activities.MainActivity"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden|stateAlwaysHidden"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!--程序启动页-->
+        <activity android:name=".Views.Activities.Welcome.SplashActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".Receiver.LocationServer"/>
+        <!--引导页-->
+        <activity android:name=".Views.Activities.Welcome.GuideActivity"
+            android:screenOrientation="portrait"/>
+        <!--服务条款-->
+        <activity android:name=".Views.Activities.Welcome.TermActivity"
+            android:screenOrientation="portrait"/>
+        <!--卖车品牌车系-->
+        <activity android:name=".Views.Activities.Sell.BrandNameActivity"
+            android:screenOrientation="portrait"/>
+        <!--我的订阅-->
+        <activity android:name=".Views.Activities.Personal.MineSubscribeActivity"
+            android:screenOrientation="portrait"></activity>
+        <!--修改商品-->
+        <activity android:name=".Views.Activities.Sell.ChangeGoodActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|stateHidden|adjustPan"/>
+        <!--预约记录-->
+        <activity android:name=".Views.Activities.Personal.BespokeActivity"
+            android:screenOrientation="portrait"/>
+        <!--城市选择-->
+        <activity android:name=".Views.Activities.Home.CityChooiceActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan|stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+        <!--品牌选择-->
+        <activity android:name=".Views.Activities.Buy.BrandClassifyActivity"
+            android:screenOrientation="portrait"/>
+        <!--筛选-->
+        <activity android:name=".Views.Activities.Buy.ChooiceCarActivity"
+            android:screenOrientation="portrait"/>
+        <!--卖车列表-->
+        <activity android:name=".Views.Activities.Sell.SellCarRecordActivity"
+            android:screenOrientation="portrait"/>
+        <!--我的收藏-->
+        <activity android:name=".Views.Activities.Personal.MineCollectionActivity"
+            android:screenOrientation="portrait"/>
+        <!--消息中心-->
+        <activity android:name=".Views.Activities.Personal.Message.MessageCoreActivity"
+            android:screenOrientation="portrait"/>
+        <!--设置-->
+        <activity android:name=".Views.Activities.Personal.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <!--外部车辆详情-->
+        <activity android:name=".Views.Activities.Home.WebViewActivity"
+            android:screenOrientation="portrait"/>
+        <!--关于银台-->
+        <activity android:name=".Views.Activities.Personal.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <!--消息详情-->
+        <activity android:name=".Views.Activities.Personal.Message.MessageContentActivity"
+            android:screenOrientation="portrait"/>
+        <!--系统消息列表-->
+        <activity android:name=".Views.Activities.Personal.SystemMessageActivity"
+            android:screenOrientation="portrait"/>
+        <!--登录-->
+        <activity android:name=".Views.Activities.Welcome.LoginActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+        <!--结算记录-->
+        <activity android:name=".Views.Activities.Personal.BillRecordActivity"
+            android:screenOrientation="portrait"/>
+        <!--结算详情-->
+        <activity android:name=".Views.Activities.Personal.BillDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <!--分期账单-->
+        <activity android:name=".Views.Activities.Personal.BalanceActivity"
+            android:screenOrientation="portrait"/>
+        <!--搜索-->
+        <activity android:name=".Views.Activities.Home.SearchActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+        <!--修改个人信息-->
+        <activity android:name=".Views.Activities.Personal.PersonInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden|stateHidden"
+            android:screenOrientation="portrait"/>
+        <!--个人信息-->
+        <activity android:name=".Views.Activities.Personal.InfoActivity"
+            android:screenOrientation="portrait"/>
+        <!--我的分期-->
+        <activity android:name=".Views.Activities.Personal.MinePeriodActivity"
+            android:screenOrientation="portrait"/>
+        <!--降价通知-->
+        <activity android:name=".Views.Activities.Personal.Message.MineDepreciateNoticeActivity"
+            android:screenOrientation="portrait"/>
+        <!--订单列表-->
+        <activity android:name=".Views.Activities.Personal.MineBespokeActivity"
+            android:screenOrientation="portrait"/>
+        <!--车辆详情-->
+        <activity android:name=".Views.Activities.Buy.CarDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <!--浏览记录-->
+        <activity android:name=".Views.Activities.Personal.MineBrowseActivity"
+            android:screenOrientation="portrait"/>
+        <!--好车推荐-->
+        <activity android:name=".Views.Activities.Home.HomeRecommendActivity"
+            android:screenOrientation="portrait"/>
+        <!--分期购车通知-->
+        <activity android:name=".Views.Activities.Personal.Message.PeriodNoticeActivity"
+            android:screenOrientation="portrait"/>
+        <!--我的降价提醒-->
+        <activity android:name=".Views.Activities.Personal.MineDepreciateRemindActivity"
+            android:screenOrientation="portrait"/>
+        <!--意见反馈-->
+        <activity android:name=".Views.Activities.Personal.FeedbackActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+        <!--意见记录-->
+        <activity android:name=".Views.Activities.Personal.FeedbackRecordActivity"
+            android:screenOrientation="portrait"/>
+        <!--我的优惠券-->
+        <activity android:name=".Views.Activities.Personal.MineCouponActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+        <!--申请进度-->
+        <activity android:name=".Views.Activities.Sell.LookApplyActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+        <!--预约看车-->
+        <activity android:name=".Views.Activities.Buy.BespokeLookCarActivity"
+            android:screenOrientation="portrait"/>
+        <!--订阅列表-->
+        <activity android:name=".Views.Activities.Personal.SubscribeDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <!--添加订阅-->
+        <activity android:name=".Views.Activities.Personal.AddSubscribeActivity"
+            android:screenOrientation="portrait"/>
+        <!--分期购车支付（预约）-->
+        <activity android:name=".Views.Activities.Buy.Period.PeriodPayActivity"
+            android:screenOrientation="portrait"/>
+        <!--分期购车支付（支付）-->
+        <activity android:name=".Views.Activities.Buy.Period.PeriodPayCarActivity"
+            android:screenOrientation="portrait"/>
+        <!--分期购车-->
+        <activity android:name=".Views.Activities.Buy.Period.PeriodBuyCarActivity"
+            android:screenOrientation="portrait"/>
+        <!--累计支付详情-->
+        <activity android:name=".Views.Activities.Buy.Period.TotalPayActivity"
+            android:screenOrientation="portrait"/>
+        <!--查看大图-->
+        <activity android:name=".Views.Activities.Sell.PhotoViewActivity"
+            android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e792961604418513c5723f035b483eac"
+            />
+        <!--测试的高德地图值-->
+        <!--android:value="4f92e3e7054ca5b95f00922c7eae7dd3"-->
+
+
+        <service android:name="com.amap.api.location.APSService"></service>
+    </application>
+
+</manifest>

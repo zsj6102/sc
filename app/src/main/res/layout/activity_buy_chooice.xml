@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/base_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/layout_bottom"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="车辆类型"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_classify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="变速箱"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_shift"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="车龄要求"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：年)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限车龄"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/ChooseAgeArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:hideProgressHint="true"
+                    app:cells="8"
+                    app:textSize="15sp"
+                    app:min="0"
+                    app:max="8"
+                    app:reserve="1"
+                    app:hintBGHeight="30dp"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_g"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="公里数"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text_g"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：万公里)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_km"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限公里"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_km"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/kmArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:hideProgressHint="true"
+                    app:textSize="15sp"
+                    app:cells="15"
+                    app:min="0"
+                    app:max="15"
+                    app:reserve="1"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:hintBGHeight="30dp"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_p"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark33"
+                        android:layout_centerVertical="true"
+                        android:text="排量"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/text_p"
+                        android:layout_centerVertical="true"
+                        android:text="(单位：升)"
+                        android:textColor="@color/home_new_car"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/text_displacement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:text="不限排量"
+                        android:textSize="13sp"
+                        android:textColor="@color/title_color"/>
+                </RelativeLayout>
+
+                <com.colpencil.secondhandcar.Ui.RangeSeekbar
+                    android:id="@+id/sb_displacement"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    app:markTextArray="@array/DispalcementArray"
+                    app:lineColorSelected="@color/title_color"
+                    app:lineColorEdge="@color/colorSeekBarDefalut"
+                    app:textPadding="25dp"
+                    app:textSize="15sp"
+                    app:cells="10"
+                    app:hideProgressHint="true"
+                    app:min="0"
+                    app:max="5"
+                    app:reserve="0.5"
+                    app:hintBGHeight="30dp"
+                    app:seekBarResId="@mipmap/rang_chooice"
+                    app:seekbarHight="3dp"
+                    app:thumbSize="26dp"
+                    app:cellMode="other"
+                    app:seekBarMode="rangle"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="排放标准"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_displacement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="4"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="好车推荐"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="国别"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_countries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="4"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="燃料类型"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_fuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="驱动"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_drive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="4"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_bg"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"
+                    android:text="颜色"/>
+
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.ColpencilGridView
+                    android:id="@+id/gv_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_car_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/title_color"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="7"/>
+
+        <TextView
+            android:id="@+id/text_commit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="查看"
+            android:textColor="@color/white"
+            android:background="@color/choose_car_commit"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:layout_weight="3"/>
+    </LinearLayout>
+</RelativeLayout>

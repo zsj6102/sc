@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_record_feedback"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_state"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/remind"/>
+
+            <TextView
+                android:id="@+id/text_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未处理"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/img_state"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_red"/>
+
+            <TextView
+                android:id="@+id/text_commit_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="2017-05-11  15:00"
+                android:textColor="@color/text_dark99"
+                android:textSize="13sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_dark99"
+            android:layout_marginBottom="10dp"
+            android:text="意见反馈内容：某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某"/>
+
+        <TextView
+            android:id="@+id/text_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="您的意见已经处理，展开详情>>"
+            android:textColor="@color/title_color"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layerType="software"
+                android:background="@drawable/drawable_record_line"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/title_color"
+                    android:text="客服人员"
+                    />
+
+                <TextView
+                    android:id="@+id/text_reply_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="2017-05-11  15:00"
+                    android:textColor="@color/text_dark99"
+                    android:textSize="13sp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text__reply_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/text_dark99"
+                android:layout_marginBottom="10dp"
+                android:text="回复内容：某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layerType="software"
+                android:background="@drawable/drawable_record_line"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/text_ask"
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/drawable_record_text"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_dark33"
+                    android:text="继续提问"/>
+
+                <TextView
+                    android:id="@+id/text_close"
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:text="关闭"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:background="@color/text_red"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/login_text"/>
+</LinearLayout>
