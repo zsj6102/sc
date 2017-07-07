@@ -9,10 +9,19 @@ public class UrlConfig {
 //    public static final String BASE_HOST_ = "http://192.168.0.141:8080/shcar/"; //测试
 //    public static final String BASE = "http://192.168.0.233/shcar/";
 
-    /**
-     * 正式
+     /**
+      * 正式
      */
     public static final String BASE_HOST = "http://39.108.80.234/";
     public static final String BASE_HOST_ = "http://39.108.80.234/";
     public static final String BASE = "http://192.168.0.233/shcar/";
+
+
+
+    /**
+     * 支付调试
+     */
+//      public static final String BASE_HOST = "http://192.168.0.142:8080/shcar/";
+//      public static final String BASE_HOST_ = "http://192.168.0.142:8080/shcar/";
+//      public static final String BASE = "http://192.168.0.142:8080/shcar/";
 }

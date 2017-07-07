@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.colpencil.secondhandcar.Bean.Response.Message;
 import com.colpencil.secondhandcar.Bean.ResultInfo;
 import com.colpencil.secondhandcar.Bean.RxBusMsg;
+import com.colpencil.secondhandcar.Bean.RxClickMsg;
 import com.colpencil.secondhandcar.Overall.CarApplication;
 import com.colpencil.secondhandcar.Present.Mine.MessagePresenter;
 import com.colpencil.secondhandcar.R;
@@ -28,6 +29,8 @@ import com.property.colpencil.colpencilandroidlibrary.Function.Tools.SharedPrefe
 import java.util.HashMap;
 
 import butterknife.Bind;
+import rx.Observable;
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/4/1.
@@ -50,6 +53,15 @@ public class MessageCoreActivity extends ColpencilActivity implements View.OnCli
 
     @Bind(R.id.layout_system)
     LinearLayout ll_system;
+
+    @Bind(R.id.syatem_recommand)
+    TextView syatem_recommand;
+
+    @Bind(R.id.period_recommand)
+    TextView period_recommand;
+
+    @Bind(R.id.reduce_recommand)
+    TextView reduce_recommand;
 
     @Bind(R.id.empty)
     LinearLayout empty;
@@ -80,6 +92,9 @@ public class MessageCoreActivity extends ColpencilActivity implements View.OnCli
 
     private Intent intent;
     private MessagePresenter presenter;
+    private boolean show0;
+    private boolean show1;
+    private boolean show2;
 
     @Override
     protected void initViews(View view) {
@@ -87,18 +102,37 @@ public class MessageCoreActivity extends ColpencilActivity implements View.OnCli
         tv_title.setText("消息中心");
         empty.setVisibility(View.GONE);
         ll_message.setVisibility(View.GONE);
-
         HashMap<String, String> params = new HashMap<>();
         params.put("member_id", SharedPreferencesUtil.getInstance(this).getInt("member_id")+"");
         params.put("token", SharedPreferencesUtil.getInstance(this).getString("token"));
         presenter.getMessage(params);
-
+        Intent intent = getIntent();
+        show0 = intent.getExtras().getBoolean("isShow0");
+        show1 = intent.getExtras().getBoolean("isShow1");
+        show2 = intent.getExtras().getBoolean("isShow2");
+        showRedCircle();
         ll_left.setOnClickListener(this);
         ll_period.setOnClickListener(this);
         ll_reduce.setOnClickListener(this);
         ll_system.setOnClickListener(this);
     }
-
+    private void showRedCircle(){
+        if(show0){
+            syatem_recommand.setVisibility(View.VISIBLE);
+        }else{
+            syatem_recommand.setVisibility(View.GONE);
+        }
+        if(show1){
+            period_recommand.setVisibility(View.VISIBLE);
+        }else{
+            period_recommand.setVisibility(View.GONE);
+        }
+        if(show2){
+            reduce_recommand.setVisibility(View.VISIBLE);
+        }else{
+            reduce_recommand.setVisibility(View.GONE);
+        }
+    }
     @Override
     public ColpencilPresenter getPresenter() {
         presenter = new MessagePresenter();
@@ -117,14 +151,29 @@ public class MessageCoreActivity extends ColpencilActivity implements View.OnCli
                 finish();
                 break;
             case R.id.layout_reduce: //降价通知
+                RxClickMsg msg = new RxClickMsg();
+                msg.setClick(true);
+                msg.setType(2);
+                RxBus.get().post("meClick",msg);
+                reduce_recommand.setVisibility(View.GONE);
                 intent = new Intent(this, MineDepreciateNoticeActivity.class);
                 startActivity(intent);
                 break;
             case R.id.layout_period: //分期购车通知
+                RxClickMsg msg1 = new RxClickMsg();
+                msg1.setClick(true);
+                msg1.setType(1);
+                RxBus.get().post("meClick",msg1);
+                period_recommand.setVisibility(View.GONE);
                 intent = new Intent(this, PeriodNoticeActivity.class);
                 startActivity(intent);
                 break;
             case R.id.layout_system: //系统消息
+                RxClickMsg msg0 = new RxClickMsg();
+                msg0.setClick(true);
+                msg0.setType(0);
+                RxBus.get().post("meClick",msg0);
+                syatem_recommand.setVisibility(View.GONE);
                 intent = new Intent(this, SystemMessageActivity.class);
                 startActivity(intent);
                 break;

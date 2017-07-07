@@ -21,6 +21,7 @@ import com.colpencil.secondhandcar.Bean.Response.Installment;
 import com.colpencil.secondhandcar.Bean.Response.Login;
 import com.colpencil.secondhandcar.Bean.Response.Logout;
 import com.colpencil.secondhandcar.Bean.Response.Message;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.MineDepreciateNotice;
 import com.colpencil.secondhandcar.Bean.Response.MineRemind;
@@ -655,4 +656,13 @@ public interface CarApi {
     @POST("api/mobile/front_html/editGoods.do")
     @FormUrlEncoded
     Observable<ResultInfo<Url>> editHtmlUrl(@FieldMap()HashMap<String, String> params);
+
+    /**
+     * 获取所有消息和本地做判断
+     * @param params
+     * @return
+     */
+    @POST("api/mobile/message-center/has-message.do")
+    @FormUrlEncoded
+    Observable<Result<MessageCount>> getMessageCount(@FieldMap()HashMap<String, String> params);
 }

@@ -49,14 +49,27 @@
                     android:layout_height="27dp"
                     android:layout_margin="10dp"
                     android:src="@mipmap/setting"/>
-
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="right">
                 <ImageView
                     android:id="@+id/img_message"
-                    android:layout_gravity="right"
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:layout_margin="10dp"
+
                     android:src="@mipmap/message"/>
+                <TextView
+                    android:id="@+id/msg_recommand"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:visibility="gone"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignLeft="@id/img_message"
+                    android:background="@drawable/message_diff"
+                 />
+                </RelativeLayout>
             </FrameLayout>
 
             <TextView

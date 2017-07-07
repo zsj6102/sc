@@ -1,7 +1,10 @@
 package com.colpencil.secondhandcar.Present.Home;
 
+import android.util.Log;
+
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
@@ -55,7 +58,30 @@ public class RecommendPresenter extends ColpencilPresenter<RecommendView> {
         };
         model.sub(subscriber);
     }
+    public void getMessageCount(int member_id,String token){
+        model.getMessageCount(member_id,token);
+        Subscriber<Result<MessageCount>> subscriber = new Subscriber<Result<MessageCount>>() {
+            @Override
+            public void onCompleted() {
 
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Result<MessageCount> messageCountResult) {
+                if(messageCountResult.getCode() == 1){
+                   mView.loadMsgCount(messageCountResult);
+                }else{
+                   mView.loadError(messageCountResult.getMessage());
+                }
+            }
+        };
+        model.subMessage(subscriber);
+    }
     public void homeInfo(){
         model.homeInfo();
         Subscriber<ResultInfo<Home>> subscriber = new Subscriber<ResultInfo<Home>>() {

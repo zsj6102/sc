@@ -17,6 +17,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.colpencil.secondhandcar.Bean.RxBusMsg;
+import com.colpencil.secondhandcar.Bean.RxClickMsg;
 import com.colpencil.secondhandcar.Bean.RxMsg;
 import com.colpencil.secondhandcar.R;
 import com.colpencil.secondhandcar.Tools.PermissionTool;
@@ -186,6 +187,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.rb_mine:
                 vp.setCurrentItem(3, false);
+                RxClickMsg msg1 = new RxClickMsg();
+                msg1.setClick(true);
+                msg1.setType(3);
+                RxBus.get().post("meClick",msg1);
                 break;
         }
     }

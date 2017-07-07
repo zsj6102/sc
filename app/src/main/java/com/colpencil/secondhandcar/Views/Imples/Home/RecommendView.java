@@ -2,6 +2,7 @@ package com.colpencil.secondhandcar.Views.Imples.Home;
 
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
@@ -17,6 +18,9 @@ public interface RecommendView extends ColpencilBaseView {
     void refresh(Result<FriendRecommend> result);
 
     void loadError(String message);
+
+    void loadMsgCount(Result<MessageCount> result);
+
 
     void loadMore(Result<FriendRecommend> result);
 

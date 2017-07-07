@@ -134,7 +134,8 @@ public class MinePeriodAdapter extends SuperAdapter<Order> {
                         params.put("member_id", SharedPreferencesUtil.getInstance(mContext).getInt("member_id") + "");
                         params.put("token", SharedPreferencesUtil.getInstance(mContext).getString("token"));
                         params.put("order_id", item.getOrder_id() + "");
-                        RetrofitManager.getInstance(1, CarApplication.getInstance(), UrlConfig.BASE_HOST_).createApi(CarApi.class).pay(params).subscribeOn(Schedulers.io()).map(new Func1<PayResult, PayResult>() {
+                        //BASE 支付调试地址
+                        RetrofitManager.getInstance(1, CarApplication.getInstance(), UrlConfig.BASE).createApi(CarApi.class).pay(params).subscribeOn(Schedulers.io()).map(new Func1<PayResult, PayResult>() {
                             @Override
                             public PayResult call(PayResult payResult) {
                                 return payResult;

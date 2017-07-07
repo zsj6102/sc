@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
 import com.colpencil.secondhandcar.Bean.Response.KeyWord;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
@@ -360,6 +361,11 @@ public class HomeFragment extends ColpencilFragment implements SwipeRefreshLayou
     @Override
     public void loadError(String message) {
         ll_good.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void loadMsgCount(Result<MessageCount> result) {
+
     }
 
     @Override

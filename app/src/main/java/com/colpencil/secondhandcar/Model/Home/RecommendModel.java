@@ -3,9 +3,11 @@ package com.colpencil.secondhandcar.Model.Home;
 import com.colpencil.secondhandcar.Api.CarApi;
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
+import com.colpencil.secondhandcar.Bean.Response.Url;
 import com.colpencil.secondhandcar.Bean.Result;
 import com.colpencil.secondhandcar.Bean.ResultInfo;
 import com.colpencil.secondhandcar.Config.UrlConfig;
@@ -21,6 +23,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
+import static com.umeng.analytics.pro.x.F;
+import static com.umeng.analytics.pro.x.S;
+
 /**
  * Created by Administrator on 2017/5/3.
  */
@@ -30,7 +35,7 @@ public class RecommendModel implements IRecommendModel {
     private Observable<Subscribe> subscribeObservable;
     private Observable<Result_comment> commentObservable;
     private Observable<ResultInfo<MessageInfo>> popupObservable;
-
+    private Observable<Result<MessageCount>> messageObservable;
     @Override
     public void getRecommend(int pageNo, int pageSize, int cityId) {
         HashMap<String, String> params = new HashMap<>();
@@ -50,8 +55,31 @@ public class RecommendModel implements IRecommendModel {
     }
 
     @Override
+    public void getMessageCount(int memeber_id,String token) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("member_id", memeber_id+"");
+        params.put("token", token);
+        messageObservable = RetrofitManager.getInstance(1,CarApplication.getInstance(),UrlConfig.BASE_HOST_)
+                .createApi(CarApi.class)
+                .getMessageCount(params)
+                .subscribeOn(Schedulers.io())
+                .map(new Func1<Result<MessageCount>,Result<MessageCount>>(){
+                    @Override
+                    public Result<MessageCount> call(Result<MessageCount> messageCountResult){
+                        return  messageCountResult;
+                    }
+                }).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
+    public void subMessage(Subscriber<Result<MessageCount>> messageResult) {
+        messageObservable.subscribe(messageResult);
+    }
+
+    @Override
     public void sub(Subscriber<Result<FriendRecommend>> resultSubscriber) {
         observable.subscribe(resultSubscriber);
+
     }
 
     private Observable<ResultInfo<Home>> observableHome;

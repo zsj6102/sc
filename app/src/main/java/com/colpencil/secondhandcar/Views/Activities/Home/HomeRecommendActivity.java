@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
@@ -138,6 +139,13 @@ public class HomeRecommendActivity extends ColpencilActivity implements View.OnC
         rl_data.setVisibility(View.GONE);
         ll_empty.setVisibility(View.VISIBLE);
     }
+
+    @Override
+    public void loadMsgCount(Result<MessageCount> result) {
+
+    }
+
+
 
     @Override
     public void loadMore(Result<FriendRecommend> result) {

@@ -1,5 +1,6 @@
 package com.colpencil.secondhandcar.Views.Fragments.Personal;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,16 +10,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.colpencil.secondhandcar.Bean.Response.FriendRecommend;
 import com.colpencil.secondhandcar.Bean.Response.Home;
+import com.colpencil.secondhandcar.Bean.Response.MessageCount;
 import com.colpencil.secondhandcar.Bean.Response.MessageInfo;
 import com.colpencil.secondhandcar.Bean.Response.Result_comment;
 import com.colpencil.secondhandcar.Bean.Response.Subscribe;
+import com.colpencil.secondhandcar.Bean.Response.WordType;
 import com.colpencil.secondhandcar.Bean.Result;
 import com.colpencil.secondhandcar.Bean.ResultInfo;
 import com.colpencil.secondhandcar.Bean.RxBusMsg;
 import com.colpencil.secondhandcar.Bean.RxCityMsg;
+import com.colpencil.secondhandcar.Bean.RxClickMsg;
 import com.colpencil.secondhandcar.Overall.CarApplication;
 import com.colpencil.secondhandcar.Present.Home.RecommendPresenter;
 import com.colpencil.secondhandcar.R;
@@ -41,6 +46,7 @@ import com.colpencil.secondhandcar.Views.Activities.Sell.SellCarRecordActivity;
 import com.colpencil.secondhandcar.Views.Activities.Welcome.LoginActivity;
 import com.colpencil.secondhandcar.Views.Adapter.Home.RecommendAdapter;
 import com.colpencil.secondhandcar.Views.Imples.Home.RecommendView;
+import com.google.gson.reflect.TypeToken;
 import com.property.colpencil.colpencilandroidlibrary.ControlerBase.MVP.ColpencilFragment;
 import com.property.colpencil.colpencilandroidlibrary.ControlerBase.MVP.ColpencilPresenter;
 import com.property.colpencil.colpencilandroidlibrary.Function.Annotation.ActivityFragmentInject;
@@ -49,11 +55,18 @@ import com.property.colpencil.colpencilandroidlibrary.Function.Tools.SharedPrefe
 import com.property.colpencil.colpencilandroidlibrary.Ui.RecylerView.AutoLoadRecylerView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import rx.Observable;
 import rx.Subscriber;
+
+import static android.R.attr.type;
+import static cn.jpush.android.d.f;
+import static com.colpencil.secondhandcar.R.id.syatem_recommand;
+import static com.umeng.analytics.pro.x.S;
 
 /**
  * Created by Administrator on 2017/3/22.
@@ -61,6 +74,8 @@ import rx.Subscriber;
  */
 @ActivityFragmentInject(contentViewId = R.layout.fragment_mine)
 public class PersonalFragment extends ColpencilFragment implements View.OnClickListener, RecommendView{
+    @Bind(R.id.msg_recommand)
+    TextView msg_recommand;
 
     @Bind(R.id.img_setting)
     ImageView img_setting;
@@ -147,13 +162,13 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
     private RecommendAdapter groomAdapter;
     private Observable<RxBusMsg> observable;
     private Observable<RxCityMsg> observableCity;
-    private Observable<RxBusMsg> msgObservable;
+
+    private Observable<RxClickMsg> observableMe;
     private RecommendPresenter presenter;
 
     private int pageNo = 1;
     private int pageSize = 6;
     private List<FriendRecommend> groomList = new ArrayList<>();
-
     @Override
     protected void initViews(View view) {
         ll_goods.setVisibility(View.GONE);
@@ -200,6 +215,14 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
             ll_sell_info.setVisibility(View.GONE);
         }
         presenter.getRecommend(pageNo, pageSize, SharedPreferencesUtil.getInstance(getActivity()).getInt("cityId"));
+        if(SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isLogin", false)){
+            HashMap<String, String> params = new HashMap<>();
+            params.put("member_id", SharedPreferencesUtil.getInstance(getActivity()).getInt("member_id")+"");
+            params.put("token", SharedPreferencesUtil.getInstance(getActivity()).getString("token"));
+            presenter.getMessageCount(SharedPreferencesUtil.getInstance(getActivity()).getInt("member_id"),SharedPreferencesUtil.getInstance(getActivity()).getString("token"));
+        }
+        SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",false);
+
         initBus();
         initListener();
     }
@@ -272,30 +295,40 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
             }
         };
         observableCity.subscribe(subscriberCity);
-//        msgObservable = RxBus.get().register("isCommit", RxBusMsg.class);
-//        Subscriber<RxBusMsg> busMsgSubscriber = new Subscriber<RxBusMsg>() {
-//            @Override
-//            public void onCompleted() {
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//
-//            @Override
-//            public void onNext(RxBusMsg rxBusMsg) {
-//                if(SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isLogin", false) && SharedPreferencesUtil.getInstance(getActivity()).getString("isCommit").equals(SharedPreferencesUtil.getInstance(getActivity()).getInt("member_id")+"success")){
-//                    ll_i.setVisibility(View.VISIBLE);
-//                    view_i.setVisibility(View.VISIBLE);
-//                } else {
-//                    ll_i.setVisibility(View.GONE);
-//                    view_i.setVisibility(View.GONE);
-//                }
-//            }
-//        };
-//        msgObservable.subscribe(busMsgSubscriber);
+        observableMe = RxBus.get().register("meClick",RxClickMsg.class);
+        Subscriber<RxClickMsg> subMe = new Subscriber<RxClickMsg>() {
+            @Override
+            public void onCompleted() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(RxClickMsg rxClickMsg) {
+                if(rxClickMsg.getType()==0){
+                    SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",false);
+                    showCount();
+                }else if(rxClickMsg.getType() == 1){
+                    SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow1",false);
+                    showCount();
+                }else if(rxClickMsg.getType() == 2){
+                    SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow2",false);
+                    showCount();
+                }else if(rxClickMsg.getType() == 3){
+                    if(SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isLogin", false)){
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("member_id", SharedPreferencesUtil.getInstance(getActivity()).getInt("member_id")+"");
+                        params.put("token", SharedPreferencesUtil.getInstance(getActivity()).getString("token"));
+                        presenter.getMessageCount(SharedPreferencesUtil.getInstance(getActivity()).getInt("member_id"),SharedPreferencesUtil.getInstance(getActivity()).getString("token"));
+                    }
+                }
+
+            }
+        };
+        observableMe.subscribe(subMe);
     }
 
     /**
@@ -344,6 +377,9 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
             case R.id.img_message: //消息
                 if(SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isLogin", false)){
                     intent = new Intent(getActivity(), MessageCoreActivity.class);
+                    intent.putExtra("isShow1",SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow1",false));
+                    intent.putExtra("isShow2",SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow1",false));
+                    intent.putExtra("isShow0",SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow1",false));
                     startActivity(intent);
                 } else {
                     intent = new Intent(getActivity(), LoginActivity.class);
@@ -506,6 +542,94 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
         ll_goods.setVisibility(View.GONE);
     }
 
+    @Override
+    public void loadMsgCount(Result<MessageCount> result) {
+       if(result.getData()!=null && result.getData().size()>0){
+            List<MessageCount> mapList0 = new ArrayList<>();
+            List<MessageCount> mapList1 = new ArrayList<>();
+           List<MessageCount> mapList2 = new ArrayList<>();
+            for(int i = 0;i < result.getData().size();i++){
+                if(result.getData().get(i).getType() == 0){
+                    mapList0.add(result.getData().get(i));
+                }else if(result.getData().get(i).getType() == 1){
+                    mapList1.add(result.getData().get(i));
+                }else if(result.getData().get(i).getType() == 2){
+                    mapList2.add(result.getData().get(i));
+                }
+            }
+
+           //如果请求回来数量大于本地重新写入，如果解订阅则返回回来为空也重新写入
+               if(mapList0.size() > 0){
+                   if(SharedPreferencesUtil.getInstance(getActivity()).getDataList("message0",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()>0){
+                       if( mapList0.size() > SharedPreferencesUtil.getInstance(getActivity()).getDataList("message0",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()){
+                           SharedPreferencesUtil.getInstance(getActivity()).remove("message0");
+                           SharedPreferencesUtil.getInstance(getActivity()).setDataList("message0",mapList0);
+                           SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",true);
+                       }
+                   }else{
+                       //没有消息第一次写入
+                       SharedPreferencesUtil.getInstance(getActivity()).setDataList("message0",mapList0);
+                       SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",true);
+                   }
+               }else{
+                   SharedPreferencesUtil.getInstance(getActivity()).remove("message0");
+                   SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",false);
+               }
+
+              if(mapList1.size() > 0){
+                  if(SharedPreferencesUtil.getInstance(getActivity()).getDataList("message1",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()>0){
+                      if( mapList1.size() > SharedPreferencesUtil.getInstance(getActivity()).getDataList("message1",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()){
+                          SharedPreferencesUtil.getInstance(getActivity()).remove("message1");
+                          SharedPreferencesUtil.getInstance(getActivity()).setDataList("message1",mapList1);
+                          SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow1",true);
+                      }
+                  }else{
+                      SharedPreferencesUtil.getInstance(getActivity()).setDataList("message1",mapList1);
+                      SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow1",true);
+                  }
+              }else{
+                  SharedPreferencesUtil.getInstance(getActivity()).remove("message1");
+                  SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow1",false);
+              }
+
+             if(mapList2.size()>0){
+                 if(SharedPreferencesUtil.getInstance(getActivity()).getDataList("message2",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()>0){
+                     if( mapList2.size() > SharedPreferencesUtil.getInstance(getActivity()).getDataList("message2",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()){
+                         SharedPreferencesUtil.getInstance(getActivity()).remove("message2");
+                         SharedPreferencesUtil.getInstance(getActivity()).setDataList("message2",mapList2);
+                         SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow2",true);
+                     }
+                 }else{
+                     SharedPreferencesUtil.getInstance(getActivity()).setDataList("message2",mapList2);
+                     SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow2",true);
+                 }
+               }else{
+                   SharedPreferencesUtil.getInstance(getActivity()).remove("message2");
+                   SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow2",false);
+               }
+
+       }else{
+           SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow2",false);
+           SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow1",false);
+           SharedPreferencesUtil.getInstance(getActivity()).setBoolean("isShow0",false);
+       }
+        showCount();
+    }
+    private void showCount(){
+        if( !SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow2",false) && !SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow1",false) &&
+                !SharedPreferencesUtil.getInstance(getActivity()).getBoolean("isShow0",false)){
+            msg_recommand.setVisibility(View.GONE);
+        }else{
+            msg_recommand.setVisibility(View.VISIBLE);
+        }
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        RxBus.get().unregister("rxIsLogin", observable);
+        RxBus.get().unregister("city",observableCity);
+        RxBus.get().unregister("meClick",observableMe);
+    }
     @Override
     public void loadMore(Result<FriendRecommend> result) {
 

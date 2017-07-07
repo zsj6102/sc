@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
 
     <include layout="@layout/base_toolbar"/>
 
@@ -28,14 +28,31 @@
                     android:id="@+id/layout_reduce"
                     android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="49dp"
-                        android:layout_height="49dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/reduce_notice"/>
+                    <RelativeLayout
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="5dp">
+
+                        <ImageView
+                            android:id="@+id/img_reduce"
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@mipmap/reduce_notice"/>
+
+                        <TextView
+                            android:id="@+id/reduce_recommand"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:visibility="gone"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/message_diff"
+                            />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -51,8 +68,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="降价通知"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_dark33"/>
+                                android:textColor="@color/text_dark33"
+                                android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/text_reduce_date"
@@ -61,22 +78,22 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="10dp"
-                                android:textSize="12sp"
+                                android:text="2017-03-14"
                                 android:textColor="@color/home_new_car"
-                                android:text="2017-03-14"/>
+                                android:textSize="12sp"/>
                         </RelativeLayout>
 
                         <TextView
                             android:id="@+id/text_reduce"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:textSize="12sp"
                             android:layout_marginRight="10dp"
-                            android:singleLine="true"
+                            android:layout_marginTop="5dp"
                             android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"
                             android:textColor="@color/text_dark33"
-                            android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"/>
+                            android:textSize="12sp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -89,14 +106,30 @@
                     android:id="@+id/layout_period"
                     android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="49dp"
-                        android:layout_height="49dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/period_buy"/>
+
+                    <RelativeLayout
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="5dp">
+
+                        <ImageView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:src="@mipmap/period_buy"/>
+                        <TextView
+                            android:id="@+id/period_recommand"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:visibility="gone"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/message_diff"
+                            />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -112,32 +145,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="分期购车"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_dark33"/>
+                                android:textColor="@color/text_dark33"
+                                android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/text_period_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:layout_marginRight="10dp"
-                                android:textColor="@color/home_new_car"
                                 android:layout_centerVertical="true"
-                                android:textSize="12sp"
-                                android:text="2017-03-14"/>
+                                android:layout_marginRight="10dp"
+                                android:text="2017-03-14"
+                                android:textColor="@color/home_new_car"
+                                android:textSize="12sp"/>
                         </RelativeLayout>
 
                         <TextView
                             android:id="@+id/text_period"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:textSize="12sp"
                             android:layout_marginRight="10dp"
-                            android:singleLine="true"
+                            android:layout_marginTop="5dp"
                             android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"
                             android:textColor="@color/text_dark33"
-                            android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"/>
+                            android:textSize="12sp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -150,15 +183,29 @@
                     android:id="@+id/layout_system"
                     android:layout_width="match_parent"
                     android:layout_height="78dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="49dp"
-                        android:layout_height="49dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/syatem"/>
+                    <RelativeLayout
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="5dp">
 
+                        <ImageView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:src="@mipmap/syatem"/>
+                        <TextView
+                            android:id="@+id/syatem_recommand"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:visibility="gone"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/message_diff"
+                            />
+                    </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -173,19 +220,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="系统消息"
-                                android:textSize="16sp"
-                                android:textColor="@color/text_dark33"/>
+                                android:textColor="@color/text_dark33"
+                                android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/text_system_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:layout_marginRight="10dp"
-                                android:textColor="@color/home_new_car"
                                 android:layout_centerVertical="true"
-                                android:textSize="12sp"
-                                android:text="2017-03-14"/>
+                                android:layout_marginRight="10dp"
+                                android:text="2017-03-14"
+                                android:textColor="@color/home_new_car"
+                                android:textSize="12sp"/>
                         </RelativeLayout>
 
                         <LinearLayout
@@ -204,14 +251,14 @@
                                 android:id="@+id/text_system"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
                                 android:layout_marginLeft="5dp"
-                                android:textSize="12sp"
                                 android:layout_marginRight="10dp"
-                                android:singleLine="true"
+                                android:layout_marginTop="5dp"
                                 android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"
                                 android:textColor="@color/text_dark33"
-                                android:text="亲，您的降价通知的【吉利帝豪2015最新车型已经降价啦】"/>
+                                android:textSize="12sp"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -222,8 +269,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="125dp"
-                android:gravity="center_horizontal"
                 android:background="@color/white"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <ImageView
@@ -235,9 +282,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:textSize="14sp"
+                    android:text="暂无记录"
                     android:textColor="@color/text_dark99"
-                    android:text="暂无记录"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
