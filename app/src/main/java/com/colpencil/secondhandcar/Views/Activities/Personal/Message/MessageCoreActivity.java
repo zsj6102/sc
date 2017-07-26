@@ -107,9 +107,9 @@ public class MessageCoreActivity extends ColpencilActivity implements View.OnCli
         params.put("token", SharedPreferencesUtil.getInstance(this).getString("token"));
         presenter.getMessage(params);
         Intent intent = getIntent();
-        show0 = intent.getExtras().getBoolean("isShow0");
-        show1 = intent.getExtras().getBoolean("isShow1");
-        show2 = intent.getExtras().getBoolean("isShow2");
+        show0 = intent.getExtras().getBoolean("show0");
+        show1 = intent.getExtras().getBoolean("show1");
+        show2 = intent.getExtras().getBoolean("show2");
         showRedCircle();
         ll_left.setOnClickListener(this);
         ll_period.setOnClickListener(this);

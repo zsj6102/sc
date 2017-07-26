@@ -164,7 +164,7 @@ public class SellCarFragment extends BaseFragment implements View.OnClickListene
     @Override
     protected void initViews(View view) {
         initBannerData();
-//        initBus();
+        initBus();
     }
 
     private void initBus(){

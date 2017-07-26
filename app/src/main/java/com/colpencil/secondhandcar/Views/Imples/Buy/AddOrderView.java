@@ -11,4 +11,6 @@ public interface AddOrderView extends ColpencilBaseView {
     void addSuccess(Result_comment result_comment);
 
     void addFaile(Result_comment result_comment);
+
+    void netfail(String message);
 }

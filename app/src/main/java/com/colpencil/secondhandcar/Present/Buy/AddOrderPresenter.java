@@ -31,7 +31,7 @@ public class AddOrderPresenter extends ColpencilPresenter<AddOrderView> {
 
             @Override
             public void onError(Throwable e) {
-
+              mView.netfail(e.getMessage());
             }
 
             @Override

@@ -17,7 +17,9 @@ import com.colpencil.secondhandcar.Overall.CarApplication;
 import com.colpencil.secondhandcar.R;
 import com.colpencil.secondhandcar.Tools.StringUtils;
 import com.colpencil.secondhandcar.Ui.AlertDialog;
+import com.colpencil.secondhandcar.Views.Activities.Buy.Period.PeriodBuyCarActivity;
 import com.colpencil.secondhandcar.Views.Activities.Buy.Period.PeriodPayCarActivity;
+import com.colpencil.secondhandcar.Views.Activities.Home.WebViewActivity;
 import com.property.colpencil.colpencilandroidlibrary.Function.MianCore.RetrofitManager;
 import com.property.colpencil.colpencilandroidlibrary.Function.Rx.RxBus;
 import com.property.colpencil.colpencilandroidlibrary.Function.Tools.SharedPreferencesUtil;
@@ -129,33 +131,36 @@ public class MinePeriodAdapter extends SuperAdapter<Order> {
                 holder.getView(R.id.text_pay).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "1", Toast.LENGTH_SHORT).show();
-                        HashMap<String, String> params = new HashMap<>();
-                        params.put("member_id", SharedPreferencesUtil.getInstance(mContext).getInt("member_id") + "");
-                        params.put("token", SharedPreferencesUtil.getInstance(mContext).getString("token"));
-                        params.put("order_id", item.getOrder_id() + "");
+                        //                        HashMap<String, String> params = new HashMap<>();
+                        //                        params.put("member_id", SharedPreferencesUtil.getInstance(mContext).getInt("member_id") + "");
+                        //                        params.put("token", SharedPreferencesUtil.getInstance(mContext).getString("token"));
+                        //                        params.put("order_id", item.getOrder_id() + "");
+
+                        Intent intent = new Intent(mContext, WebViewActivity.class);
+                        intent.putExtra("url", "http://39.108.80.234/api/mobile/icbc/pay.do?" + "order_id" + "=" + item.getOrder_id());
+                        mContext.startActivity(intent);
                         //BASE 支付调试地址
-                        RetrofitManager.getInstance(1, CarApplication.getInstance(), UrlConfig.BASE).createApi(CarApi.class).pay(params).subscribeOn(Schedulers.io()).map(new Func1<PayResult, PayResult>() {
-                            @Override
-                            public PayResult call(PayResult payResult) {
-                                return payResult;
-                            }
-                        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<PayResult>() {
-                            @Override
-                            public void onCompleted() {
-
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onNext(PayResult payResult) {
-                                    Toast.makeText(mContext, payResult.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        //                        RetrofitManager.getInstance(1, CarApplication.getInstance(), UrlConfig.BASE_HOST_).createApi(CarApi.class).pay(params).subscribeOn(Schedulers.io()).map(new Func1<PayResult, PayResult>() {
+                        //                            @Override
+                        //                            public PayResult call(PayResult payResult) {
+                        //                                return payResult;
+                        //                            }
+                        //                        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<PayResult>() {
+                        //                            @Override
+                        //                            public void onCompleted() {
+                        //
+                        //                            }
+                        //
+                        //                            @Override
+                        //                            public void onError(Throwable e) {
+                        //                                Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
+                        //                            }
+                        //
+                        //                            @Override
+                        //                            public void onNext(PayResult payResult) {
+                        //                                    Toast.makeText(mContext, payResult.getMessage(), Toast.LENGTH_SHORT).show();
+                        //                            }
+                        //                        });
                     }
                 });
                 break;

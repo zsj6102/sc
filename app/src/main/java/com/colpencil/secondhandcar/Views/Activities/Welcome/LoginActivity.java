@@ -41,7 +41,6 @@ import butterknife.Bind;
  */
 @ActivityFragmentInject(contentViewId = R.layout.activity_login)
 public class LoginActivity extends ColpencilActivity implements View.OnClickListener, LoginView{
-
     @Bind(R.id.ll_left)
     LinearLayout ll_left;
 

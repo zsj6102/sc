@@ -233,6 +233,8 @@
         <!--查看大图-->
         <activity android:name=".Views.Activities.Sell.PhotoViewActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Views.Activities.PayActivity"
+            android:screenOrientation="portrait"/>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

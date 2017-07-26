@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/img_sort"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="8dp"
+                android:layout_height="5dp"
                 android:layout_marginLeft="5dp"
                android:src="@mipmap/popwindow_uncheck" />
 
@@ -63,8 +63,8 @@
                 android:textSize="14sp" />
 
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="8dp"
+                android:layout_height="5dp"
                 android:layout_marginLeft="5dp"
                 android:src="@mipmap/popwindow_uncheck"/>
         </LinearLayout>
@@ -94,8 +94,8 @@
 
             <ImageView
                 android:id="@+id/img_price"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="8dp"
+                android:layout_height="5dp"
                 android:layout_marginLeft="5dp"
                 android:src="@mipmap/popwindow_uncheck"/>
         </LinearLayout>
@@ -124,8 +124,8 @@
                 android:textSize="14sp" />
 
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="8dp"
+                android:layout_height="5dp"
                 android:layout_marginLeft="5dp"
                 android:src="@mipmap/popwindow_uncheck"/>
         </LinearLayout>

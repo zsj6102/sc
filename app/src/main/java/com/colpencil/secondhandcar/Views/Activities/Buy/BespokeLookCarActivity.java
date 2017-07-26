@@ -17,6 +17,7 @@ import com.colpencil.secondhandcar.Overall.CarApplication;
 import com.colpencil.secondhandcar.Present.Buy.AddOrderPresenter;
 import com.colpencil.secondhandcar.R;
 import com.colpencil.secondhandcar.Tools.StringUtils;
+import com.colpencil.secondhandcar.Views.Activities.PayActivity;
 import com.colpencil.secondhandcar.Views.Activities.Welcome.LoginActivity;
 import com.colpencil.secondhandcar.Views.Imples.Buy.AddOrderView;
 import com.property.colpencil.colpencilandroidlibrary.ControlerBase.MVP.ColpencilActivity;
@@ -33,6 +34,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 import butterknife.Bind;
+
+import static com.umeng.analytics.pro.x.I;
 
 /**
  * Created by Administrator on 2017/4/12.
@@ -184,6 +187,7 @@ public class BespokeLookCarActivity extends ColpencilActivity implements View.On
                     params.put("goods_id", carInfo.getGoods_id()+"");
                     params.put("look_time", time+"");
                     presenter.addOrder(params);
+
                 }
                 break;
             case R.id.rl_time: //选择时间
@@ -194,7 +198,12 @@ public class BespokeLookCarActivity extends ColpencilActivity implements View.On
 
     @Override
     public void addSuccess(Result_comment result_comment) {
-        Toast.makeText(this, result_comment.getMessage(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(BespokeLookCarActivity.this, PayActivity.class);
+        intent.putExtra("orderTime",result_comment.getData().getLook_time()+"");
+        intent.putExtra("orderMount",result_comment.getData().getOrder_amount()+"");
+        intent.putExtra("orderNo",result_comment.getData().getSn());
+        intent.putExtra("orderId",result_comment.getData().getOrder_id()+"");
+        startActivity(intent);
         finish();
     }
 
@@ -217,5 +226,10 @@ public class BespokeLookCarActivity extends ColpencilActivity implements View.On
         } else {
             Toast.makeText(this, result_comment.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void netfail(String message) {
+        Toast.makeText(this, "网络出错", Toast.LENGTH_SHORT).show();
     }
 }
