@@ -4,23 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.colpencil.secondhandcar.Ui.CheckableLinearLayout
+    <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white">
 
-        <CheckBox
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkbox"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:button="@drawable/drawable_repayment"-->
+            <!--android:focusable="false"/>-->
+        <ImageView
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="12dp"
             android:layout_gravity="center_vertical"
-            android:button="@drawable/drawable_repayment"
-            android:focusable="false"/>
-
+            android:src="@mipmap/range"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +88,7 @@
                     android:layout_marginRight="10dp"/>
             </RelativeLayout>
         </LinearLayout>
-    </com.colpencil.secondhandcar.Ui.CheckableLinearLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

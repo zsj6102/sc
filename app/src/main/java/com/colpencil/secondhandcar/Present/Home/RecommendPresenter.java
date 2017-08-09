@@ -68,7 +68,7 @@ public class RecommendPresenter extends ColpencilPresenter<RecommendView> {
 
             @Override
             public void onError(Throwable e) {
-
+               mView.loadError(e.getMessage());
             }
 
             @Override

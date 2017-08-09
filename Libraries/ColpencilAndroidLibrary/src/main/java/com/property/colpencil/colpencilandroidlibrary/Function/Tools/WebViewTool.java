@@ -22,7 +22,7 @@ public class WebViewTool {
 
         settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
-
+        settings.setDomStorageEnabled(true);    //开放内存空间
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -46,9 +46,15 @@ public class WebViewTool {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                progressBar.setProgress(newProgress);
+                if(progressBar!=null){
+                    progressBar.setProgress(newProgress);
+                }
                 if (newProgress == 100) {
-                    progressBar.setVisibility(View.GONE);
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    } else {
+
+                    }
                 }
                 super.onProgressChanged(view, newProgress);
             }

@@ -67,7 +67,7 @@ public class PeriodNoticeActivity extends ColpencilActivity implements View.OnCl
                 android.R.color.holo_red_light);
         sp.setOnRefreshListener(this);
         sp.setRefreshing(true);
-
+        loadData();
         msgPeriods = new ArrayList<>();
         lv_notice.setLayoutManager(new LinearLayoutManager(this));
         lv_notice.setLoadMoreListener(this);
@@ -121,6 +121,7 @@ public class PeriodNoticeActivity extends ColpencilActivity implements View.OnCl
     @Override
     public void insMsgRecord(Result<MsgPeriod> result) {
         hideLoading();
+        sp.setRefreshing(false);
         if(result.getData() != null && result.getData().size() > 0){
             empty.setVisibility(View.GONE);
             lv_notice.setVisibility(View.VISIBLE);

@@ -60,6 +60,9 @@ import butterknife.Bind;
 import rx.Observable;
 import rx.Subscriber;
 
+import static android.R.attr.id;
+import static com.umeng.analytics.pro.x.S;
+
 
 /**
  * Created by Administrator on 2017/3/22.
@@ -561,7 +564,7 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
                        if(mapList0.get(0).isNew()==1){
                            Map<String,Integer> map = new HashMap<>();
                            map  = (Map<String,Integer>)sp.getDataList("msg0",new TypeToken<List<Map<String,Integer>>>(){}.getType()).get(0);
-                            if(mapList0.get(0).getId() !=  map.get("id")){
+                            if(mapList0.get(0).getId() != Integer.parseInt(String.valueOf(map.get("id"))) ){
                                sp.setDataList("msg0",mapList0);
                                sp.setBoolean("show0",true);
                            }
@@ -586,7 +589,7 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
                       if(mapList1.get(0).isNew()==1){
                           Map<String,Integer> map = new HashMap<>();
                           map =  (Map<String,Integer> )sp.getDataList("msg1",new TypeToken<List<Map<String,Integer>>>(){}.getType()).get(0);
-                          if(mapList1.get(0).getId() !=  map.get("id")){
+                          if(mapList1.get(0).getId() !=Integer.parseInt(String.valueOf(map.get("id")))){
                               sp.setDataList("msg1",mapList1);
                               sp.setBoolean("show1",true);
                           }
@@ -606,16 +609,19 @@ public class PersonalFragment extends ColpencilFragment implements View.OnClickL
               }
 
              if(mapList2.size()>0){
-                 if(sp.getDataList("msg2",new TypeToken<List<Map<String,Integer>>>(){}.getType()).size()>0){
+                 if(sp.getDataList("msg2",new TypeToken<List<Map<String,Object>>>(){}.getType()).size()>0){
                     if(mapList2.size()!=1) return;
                      if(mapList2.get(0).isNew() == 1){
-                         Map<String,Integer> map = new HashMap<>();
-                         map =  (Map<String,Integer> )sp.getDataList("msg2",new TypeToken<List<Map<String,Integer>>>(){}.getType()).get(0);
-                         if(mapList2.get(0).getId() != map.get("id") ){
+                         Map<String,Object> map = new HashMap<>();
+                         map =  (Map<String,Object> )sp.getDataList("msg2",new TypeToken<List<Map<String,Object>>>(){}.getType()).get(0);
+                         String s =String.valueOf( map.get("id"));
+
+                         double  id = Double.parseDouble(s);
+                         if(mapList2.get(0).getId() !=  (int) id ){
                              sp.setDataList("msg2",mapList2);
                              sp.setBoolean("show2",true);
                          }else{
-                             if(map.get("price")==null || map.get("price") > mapList2.get(0).getPrice()){
+                             if(map.get("price")==null || Double.parseDouble(String.valueOf(map.get("price"))) > mapList2.get(0).getPrice()){
                                  sp.setDataList("msg2",mapList2);
                                  sp.setBoolean("show2",true);
                              }

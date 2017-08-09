@@ -20,6 +20,24 @@ public class Order implements Serializable {
     private double mileage;
     private String city_name;
     private int installment;
+    private long look_time;
+    private int goods_id;
+
+    public int getGoods_id() {
+        return goods_id;
+    }
+
+    public void setGoods_id(int goods_id) {
+        this.goods_id = goods_id;
+    }
+
+    public long getLook_time() {
+        return look_time;
+    }
+
+    public void setLook_time(long look_time) {
+        this.look_time = look_time;
+    }
 
     public int getInstallment() {
         return installment;

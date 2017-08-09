@@ -26,7 +26,7 @@ public class StorePeriodAdapter extends SuperAdapter<Order> {
     @Override
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, Order item) {
         holder.setText(R.id.text_number, item.getSn()); //订单编号
-        holder.setText(R.id.text_date, StringUtils.formatTime(item.getCreate_time())); //下单时间
+        holder.setText(R.id.text_date, StringUtils.format(item.getCreate_time())); //下单时间
         Glide.with(mContext)
                 .load(item.getPic())
                 .into((ImageView) holder.getView(R.id.img_car));

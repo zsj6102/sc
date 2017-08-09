@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
 
     <include layout="@layout/layout_home_navigation"/>
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#ffffff"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/supplier_list_product"
@@ -19,24 +19,33 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/supplier_list_product_tv"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/text_dark33"
-                android:text="默认排序"
-                android:textSize="14sp" />
+                android:layout_height="20dp"
+                android:gravity="center">
 
-            <ImageView
-                android:id="@+id/img_sort"
-                android:layout_width="8dp"
-                android:layout_height="5dp"
-                android:layout_marginLeft="5dp"
-               android:src="@mipmap/popwindow_uncheck" />
+                <TextView
+                    android:id="@+id/supplier_list_product_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="默认排序"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"/>
 
+                <ImageView
+                    android:id="@+id/img_sort"
+                    android:layout_width="8dp"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/supplier_list_product_tv"
+                    android:src="@mipmap/popwindow_uncheck"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <View
@@ -51,22 +60,31 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/supplier_list_sort_tv"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/text_dark33"
-                android:text="品牌"
-                android:textSize="14sp" />
+                android:layout_height="20dp"
+                android:gravity="center">
 
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="5dp"
-                android:layout_marginLeft="5dp"
-                android:src="@mipmap/popwindow_uncheck"/>
+                <TextView
+                    android:id="@+id/supplier_list_sort_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="品牌"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/supplier_list_sort_tv"
+                    android:src="@mipmap/popwindow_uncheck"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <View
@@ -81,23 +99,33 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/supplier_list_activity_tv"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/text_dark33"
-                android:text="价格"
-                android:textSize="14sp" />
+                android:layout_height="20dp"
+                android:gravity="center">
 
-            <ImageView
-                android:id="@+id/img_price"
-                android:layout_width="8dp"
-                android:layout_height="5dp"
-                android:layout_marginLeft="5dp"
-                android:src="@mipmap/popwindow_uncheck"/>
+                <TextView
+                    android:id="@+id/supplier_list_activity_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="价格"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/img_price"
+                    android:layout_width="8dp"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/supplier_list_activity_tv"
+                    android:src="@mipmap/popwindow_uncheck"/>
+
+            </RelativeLayout>
         </LinearLayout>
 
         <View
@@ -112,22 +140,31 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/supplier_list_chooice_tv"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/text_dark33"
-                android:text="筛选"
-                android:textSize="14sp" />
+                android:layout_height="20dp"
+                android:gravity="center">
 
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="5dp"
-                android:layout_marginLeft="5dp"
-                android:src="@mipmap/popwindow_uncheck"/>
+                <TextView
+                    android:id="@+id/supplier_list_chooice_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="筛选"
+                    android:textColor="@color/text_dark33"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/supplier_list_chooice_tv"
+                    android:src="@mipmap/popwindow_uncheck"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -147,8 +184,8 @@
             android:id="@+id/fl_keyword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
@@ -162,27 +199,27 @@
             android:layout_height="match_parent">
 
             <!--<android.support.v4.widget.NestedScrollView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:scrollbars="none">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scrollbars="none">-->
 
-                <LinearLayout
-                    android:id="@+id/vp"
+            <LinearLayout
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.property.colpencil.colpencilandroidlibrary.Ui.RecylerView.AutoLoadRecylerView
+                    android:id="@+id/lv_result"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"/>
 
-                    <com.property.colpencil.colpencilandroidlibrary.Ui.RecylerView.AutoLoadRecylerView
-                        android:id="@+id/lv_result"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
+            </LinearLayout>
             <!--</android.support.v4.widget.NestedScrollView>-->
 
             <include
                 android:id="@+id/layout_not_result"
-                layout="@layout/layout_not_keyword_result" />
+                layout="@layout/layout_not_keyword_result"/>
         </FrameLayout>
     </com.colpencil.secondhandcar.Ui.VpSwipeRefreshLayout>
 

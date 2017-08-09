@@ -17,6 +17,7 @@ import com.colpencil.secondhandcar.Overall.CarApplication;
 import com.colpencil.secondhandcar.R;
 import com.colpencil.secondhandcar.Tools.StringUtils;
 import com.colpencil.secondhandcar.Ui.AlertDialog;
+import com.colpencil.secondhandcar.Views.Activities.Buy.CarDetailsActivity;
 import com.colpencil.secondhandcar.Views.Activities.Buy.Period.PeriodBuyCarActivity;
 import com.colpencil.secondhandcar.Views.Activities.Buy.Period.PeriodPayCarActivity;
 import com.colpencil.secondhandcar.Views.Activities.Home.WebViewActivity;
@@ -49,8 +50,9 @@ public class MinePeriodAdapter extends SuperAdapter<Order> {
 
     @Override
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, final Order item) {
-        holder.setText(R.id.text_number, item.getSn()); //订单编号
-        holder.setText(R.id.text_date, StringUtils.formatTime(item.getCreate_time())); //下单时间
+        holder.setText(R.id.text_number, "订单编号: " + item.getSn()); //订单编号
+        holder.setText(R.id.text_date, "下单时间: " + StringUtils.formatDate(item.getCreate_time())); //下单时间
+        holder.setText(R.id.text_yuyue, "预约时间: " + StringUtils.formatDate(item.getLook_time()));//预约时间
         Glide.with(mContext).load(item.getPic()).into((ImageView) holder.getView(R.id.img_car));
         holder.setText(R.id.tv_name, item.getName());
         holder.setText(R.id.tv_ma, item.getPrice() + "万");
@@ -73,6 +75,14 @@ public class MinePeriodAdapter extends SuperAdapter<Order> {
         } else if (item.getPay_status() == 3) {
             holder.setText(R.id.text_pay_state, "已退款");
         }
+        holder.getView(R.id.detail_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, CarDetailsActivity.class);
+                intent.putExtra("carId",item.getGoods_id());
+                mContext.startActivity(intent);
+            }
+        });
         //订单状态
         switch (item.getStatus()) {
             case 0: //待付款

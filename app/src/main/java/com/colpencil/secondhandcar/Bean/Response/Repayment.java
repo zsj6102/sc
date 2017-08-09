@@ -13,6 +13,15 @@ public class Repayment implements Serializable {
     private int days;
     private long pay_time;
     private boolean isChecked;
+    private int bill_id;
+
+    public int getBill_id() {
+        return bill_id;
+    }
+
+    public void setBill_id(int bill_id) {
+        this.bill_id = bill_id;
+    }
 
     public boolean isChecked() {
         return isChecked;

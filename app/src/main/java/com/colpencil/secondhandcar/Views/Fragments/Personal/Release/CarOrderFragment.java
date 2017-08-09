@@ -90,7 +90,7 @@ public class CarOrderFragment extends ColpencilFragment implements SwipeRefreshL
         minePeriods = new ArrayList<>();
         lv_order.setLayoutManager(new LinearLayoutManager(getActivity()));
         lv_order.setLoadMoreListener(this);
-        periodAdapter = new MinePeriodAdapter(getActivity(), minePeriods, R.layout.item_periodization);
+        periodAdapter = new MinePeriodAdapter(getActivity(), minePeriods, R.layout.item_yuye);
         lv_order.setAdapter(periodAdapter);
         order();
         initBus();

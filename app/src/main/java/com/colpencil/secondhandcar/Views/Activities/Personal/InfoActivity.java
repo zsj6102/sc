@@ -148,6 +148,8 @@ public class InfoActivity extends ColpencilActivity implements PersonInfoView {
         et_info.setText(resultInfo.getData().getId_number());
         if(resultInfo.getData().getInvite_code() != null){
             et_invite.setText(resultInfo.getData().getInvite_code());
+        }else{
+            et_invite.setText("无");
         }
     }
 

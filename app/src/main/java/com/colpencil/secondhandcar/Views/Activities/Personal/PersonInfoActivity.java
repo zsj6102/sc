@@ -30,6 +30,7 @@ import java.util.HashMap;
 
 import butterknife.Bind;
 
+
 /**
  * Created by Administrator on 2017/5/26.
  */
@@ -58,8 +59,8 @@ public class PersonInfoActivity extends ColpencilActivity implements PersonInfoV
     @Bind(R.id.et_info)
     EditText et_info;
 
-    @Bind(R.id.et_invite)
-    TextView et_invite;
+//    @Bind(R.id.et_invite)
+//    TextView et_invite;
 
     @Bind(R.id.text_change)
     TextView tv_change;
@@ -172,9 +173,9 @@ public class PersonInfoActivity extends ColpencilActivity implements PersonInfoV
         et_bank_.setText(resultInfo.getData().getBank_place());
         et_number.setText(resultInfo.getData().getBank_account_number());
         et_info.setText(resultInfo.getData().getId_number());
-        if(resultInfo.getData().getInvite_code() != null){
-            et_invite.setText(resultInfo.getData().getInvite_code());
-        }
+//        if(resultInfo.getData().getInvite_code() != null){
+//            et_invite.setText(resultInfo.getData().getInvite_code());
+//        }
     }
 
     @Override

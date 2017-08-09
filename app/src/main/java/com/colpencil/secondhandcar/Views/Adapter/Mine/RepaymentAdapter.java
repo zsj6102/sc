@@ -19,13 +19,14 @@ import java.util.List;
  * Created by Administrator on 2017/5/23.
  */
 public class RepaymentAdapter extends SuperAdapter<Repayment> {
-
+    private List<Repayment> list;
     public RepaymentAdapter(Context context, List<Repayment> list, int layoutId){
         super(context, list, layoutId);
+        this.list = list;
     }
 
     @Override
-    public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, final Repayment item) {
+    public void onBind(final SuperViewHolder holder, int viewType, int layoutPosition, final Repayment item) {
         holder.setText(R.id.text_name, item.getName());
         holder.setText(R.id.text_number, item.getIns_num());
         if(item.getDays() > 0){
@@ -41,13 +42,15 @@ public class RepaymentAdapter extends SuperAdapter<Repayment> {
             @Override
             public void onClick(View v) {
                 RxMsg msg = new RxMsg();
-                if(item.isChecked()){
-                    item.setChecked(false);
-                } else {
-                    item.setChecked(true);
+                int position = 0;
+                for(int i = 0; i < list.size();i++){
+                    if(item ==list.get(i)){
+                        position = i;
+                    }
                 }
+                msg.setTypeId(position);
                 RxBus.get().post("rxMsg", msg);
-                notifyDataSetChanged();
+//                notifyDataSetChanged();
             }
         });
     }

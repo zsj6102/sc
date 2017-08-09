@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.colpencil.secondhandcar.R;
 import com.property.colpencil.colpencilandroidlibrary.ControlerBase.MVP.ColpencilActivity;
@@ -12,6 +13,8 @@ import com.property.colpencil.colpencilandroidlibrary.Function.Annotation.Activi
 import com.property.colpencil.colpencilandroidlibrary.Function.Tools.WebViewTool;
 
 import butterknife.Bind;
+import butterknife.OnClick;
+
 
 /**
  * Created by Administrator on 2017/5/15.
@@ -21,7 +24,8 @@ public class WebViewActivity extends ColpencilActivity {
 
     @Bind(R.id.web_view)
     WebView webView;
-
+    @Bind(R.id.tv_title)
+    TextView tv_title;
     @Bind(R.id.common_progress)
     ProgressBar bar;
 
@@ -30,11 +34,17 @@ public class WebViewActivity extends ColpencilActivity {
 
     @Override
     protected void initViews(View view) {
-        showLoading("加载中");
+        tv_title.setText("确认支付");
+        hideLoading();
         url = getIntent().getStringExtra("url");
         tool = new WebViewTool();
-        hideLoading();
+        bar.setVisibility(View.VISIBLE);
         tool.load(webView, url, bar);
+    }
+
+    @OnClick(R.id.ll_left)
+    void back() {
+        finish();
     }
 
     @Override
