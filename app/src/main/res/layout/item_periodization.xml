@@ -5,41 +5,22 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
-    <RelativeLayout
-
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:id="@+id/text_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            android:textSize="12sp"
-            android:textColor="@color/text_dark33"
-            android:text="订单编号："/>
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <TextView
             android:id="@+id/text_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/text_dark33"
+            android:textColor="#999999"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/text_n"
             android:textSize="12sp"
             android:text="1245621255"/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/text_t"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_toLeftOf="@+id/text_date"-->
-            <!--android:layout_marginLeft="48dp"-->
-            <!--android:text="下单时间："-->
-            <!--android:textSize="12sp"-->
-            <!--android:textColor="@color/home_new_car"/>-->
 
         <TextView
             android:id="@+id/text_date"
@@ -47,11 +28,23 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:textColor="@color/home_new_car"
+            android:textColor="#999999"
             android:layout_alignParentRight="true"
             android:textSize="12sp"
             android:text="2017-02-18"/>
-    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_yuyue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="#999999"
+            android:layout_alignParentRight="true"
+            android:textSize="12sp"
+            android:text="2017-02-18"/>
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -59,6 +52,7 @@
         android:background="@color/main_bg"/>
 
         <LinearLayout
+            android:id="@+id/detail_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

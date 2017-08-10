@@ -1,6 +1,7 @@
 package com.colpencil.secondhandcar.Views.Adapter.Mine;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide;
 import com.colpencil.secondhandcar.Bean.Response.Order;
 import com.colpencil.secondhandcar.R;
 import com.colpencil.secondhandcar.Tools.StringUtils;
+import com.colpencil.secondhandcar.Views.Activities.Buy.CarDetailsActivity;
 
 import org.byteam.superadapter.SuperAdapter;
 import org.byteam.superadapter.internal.SuperViewHolder;
@@ -24,9 +26,12 @@ public class StorePeriodAdapter extends SuperAdapter<Order> {
     }
 
     @Override
-    public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, Order item) {
-        holder.setText(R.id.text_number, item.getSn()); //订单编号
-        holder.setText(R.id.text_date, StringUtils.format(item.getCreate_time())); //下单时间
+    public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, final Order item) {
+//        holder.setText(R.id.text_number, item.getSn()); //订单编号
+//        holder.setText(R.id.text_date, StringUtils.format(item.getCreate_time())); //下单时间
+        holder.setText(R.id.text_number, "订单编号: " + item.getSn()); //订单编号
+        holder.setText(R.id.text_date, "下单时间: " + StringUtils.formatDate(item.getCreate_time())); //下单时间
+        holder.setText(R.id.text_yuyue, "预约时间: " + StringUtils.formatDate(item.getLook_time()));//预约时间
         Glide.with(mContext)
                 .load(item.getPic())
                 .into((ImageView) holder.getView(R.id.img_car));
@@ -49,6 +54,14 @@ public class StorePeriodAdapter extends SuperAdapter<Order> {
         } else if(item.getPay_status() == 2){
             holder.setText(R.id.text_pay_state, "已退款");
         }
+        holder.getView(R.id.detail_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, CarDetailsActivity.class);
+                intent.putExtra("carId",item.getGoods_id());
+                mContext.startActivity(intent);
+            }
+        });
         //订单状态
         switch (item.getStatus()) {
             case 0: //待付款
